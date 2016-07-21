@@ -1,5 +1,6 @@
 require 'pry'
 
+
 class Start
 
 
@@ -14,9 +15,10 @@ read the (i)nstructions, or (q)uit?"
     if input == "i" || input == "instructions"
       instructions
     elsif input == "q" || input == "quit"
+      puts "Game ended"
       exit
     else input == "p" || input == "play"
-      puts run code
+
     end
 
   end

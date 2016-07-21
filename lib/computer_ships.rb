@@ -28,12 +28,12 @@ class ComputerShips
   end
 end
 
-new_grid = Grid.new
-
-ship1 = ComputerShips.new
-ship2 = ComputerShips.new
-s1 = ship1.cpu_generates_random_positions_for_2_unit_ship
-new_grid.place_ship(s1)
-s2 = ship1.cpu_generates_random_positions_for_3_unit_ship
-new_grid.place_ship(s2)
-puts new_grid.grid.join
+# new_grid = Grid.new
+#
+# ship1 = ComputerShips.new
+# ship2 = ComputerShips.new
+# s1 = ship1.cpu_generates_random_positions_for_2_unit_ship
+# new_grid.place_ship(s1)
+# s2 = ship1.cpu_generates_random_positions_for_3_unit_ship
+# new_grid.place_ship(s2)
+# puts new_grid.grid.join
