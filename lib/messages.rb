@@ -1,4 +1,4 @@
-class Messages
+module Messages
   def player_position_ships_message
     puts "I have laid out my ships on the grid.
 You now need to layout your two ships.
@@ -19,6 +19,14 @@ Enter the squares for the two-unit ship:"
 
   def prompt_player_shot
     puts "Which position would you like to fire on?"
+  end
+
+  def instructions
+     puts "In the game of BATTLESHIP you are tyring to sink the oppenent's ships
+ by targeting their ships' positions on the map.  For example, if their ship
+ is located at positions A1 and A2, and you target A1, then you have Hit their
+ ship.  If you target A3, you have Missed their ship. Keep going until their
+ ships are all sunk!!"
   end
 
 end

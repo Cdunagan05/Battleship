@@ -1,29 +1,21 @@
 require 'pry'
-class Validation
-  def initialize
-    @p1 = 0
-    @p2 = 0
+module Validation
+
+  def second_spot_valid?(pos_1, second_pos_input)
+    possible_2nd_ship = [pos_1 - 2, pos_1 + 2, pos_1 - 10, pos_1 + 10]
+    possible_2nd_ship.include?(second_pos_input)
   end
 
-  def two_unit_ship_positions?(p1, p2)
-    diff = (p1-p2).abs
-    if diff == 2
-      true
-    elsif diff == 10
-      true
-    else false
+  def third_spot_valid?(pos_1, third_pos_input)
+    possible_3rd_ship = [pos_1 - 4, pos_1 + 4, pos_1 - 20, pos_1 +20]
+    possible_3rd_ship.include?(third_pos_input)
+  end
+
+
+  def placing_over_a_ship?(ship_pos_input)
+    ship_pos_input.any? do |pos|
+      grid[pos] == "S"
     end
   end
 
-  def three_unit_ship_positions?(p3, p4, p5)
-    diff1 = (p3-p4).abs
-    diff2 = (p4-p5).abs
-    if diff1 == 2 && diff2 == 2
-      true
-    elsif diff1 == 10 && diff2 == 10
-      true
-    else
-      false
-    end
-  end
 end

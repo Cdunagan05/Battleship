@@ -1,4 +1,7 @@
+require './lib/validation'
+
 class Grid
+  include Validation
     attr_reader :grid
 
   def initialize
@@ -18,4 +21,10 @@ class Grid
       assign(pos, "S")
     end
   end
+
 end
+
+# grid = Grid.new
+# grid.place_ship([26, 36])
+# # grid.place_ship([44, 46, 48])
+# puts grid.grid.join

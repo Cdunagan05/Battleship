@@ -4,36 +4,34 @@ require './lib/grid'
 
 
 class ComputerShips
+  include Validation
+  attr_reader :grid, :pos
+
+  def initialize
+    @grid = Grid.new
+    @pos = [24, 26, 28, 30, 34, 36, 38, 40, 44, 46, 48, 50, 54, 56, 58, 60]
+  end
 
   def cpu_generates_random_positions_for_2_unit_ship
-    validator = Validation.new
-    is_valid = false
-    pos = [24, 26, 28, 30, 34, 36, 38, 40, 44, 46, 48, 50, 54, 56, 58, 60]
-    until is_valid == true
-      two_unit_ship = pos.sample(2)
-      is_valid = validator.two_unit_ship_positions?(two_unit_ship[0], two_unit_ship[1])
+    p1 = pos.sample
+    valid = false
+    until valid == true
+      p2 = pos.sample
+      two_unit_ship = [p1, p2].flatten
+      valid = grid.second_spot_valid?(p1, p2) && pos.include?(p2)
     end
     return two_unit_ship
   end
 
   def cpu_generates_random_positions_for_3_unit_ship
-    validator = Validation.new
-    is_valid = false
-    pos = [24, 26, 28, 30, 34, 36, 38, 40, 44, 46, 48, 50, 54, 56, 58, 60]
-    until is_valid == true
-      three_unit_ship = pos.sample(3)
-      is_valid = validator.three_unit_ship_positions?(three_unit_ship[0], three_unit_ship[1], three_unit_ship[2])
+    p1 = pos.sample
+    valid = false
+    until valid == true
+      p3 = pos.sample
+      valid = grid.third_spot_valid?(p1, p3) && pos.include?(p3)
+      p2 = (p1 + p3)/2
+      three_unit_ship = [p1, p2, p3]
     end
     return three_unit_ship
   end
 end
-
-# new_grid = Grid.new
-#
-# ship1 = ComputerShips.new
-# ship2 = ComputerShips.new
-# s1 = ship1.cpu_generates_random_positions_for_2_unit_ship
-# new_grid.place_ship(s1)
-# s2 = ship1.cpu_generates_random_positions_for_3_unit_ship
-# new_grid.place_ship(s2)
-# puts new_grid.grid.join
