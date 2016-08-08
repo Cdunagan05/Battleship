@@ -18,4 +18,13 @@ module Validation
     end
   end
 
+  def is_shot_valid?(target)
+    pos = [24, 26, 28, 30, 34, 36, 38, 40, 44, 46, 48, 50, 54, 56, 58, 60]
+    if pos.include?(target[0]) == false
+      puts Messages.shot_not_on_grid
+    else true
+    end
+    puts "sweet"
+  end
+
 end

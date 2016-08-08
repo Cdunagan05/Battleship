@@ -27,4 +27,10 @@ class ValidationTests < Minitest::Test
     assert_equal true, grid.third_spot_valid?(p1, 44)
     assert_equal false, grid.third_spot_valid?(p1, 26)
   end
+
+  def test_it_validates_shot
+    grid = Grid.new
+    target = 24
+    assert_equal true, grid.is_shot_valid?(target)
+  end
 end

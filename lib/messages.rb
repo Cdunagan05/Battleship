@@ -10,7 +10,7 @@ Enter the squares for the two-unit ship:"
   end
 
   def self.player_positions_3_unit_ship_message
-    "Now enter the squares for the three_unit ship:"
+    "Thank you! \n Now enter the squares for the three_unit ship:"
   end
 
   def self.invalid_ship_placement_message
@@ -41,5 +41,18 @@ Enter the squares for the two-unit ship:"
   def self.ended
     "Giving up so soon?  You were not prepared..."
   end
+
+  def self.placed_on_ship
+    "Hey, you cannot place one of your ships on your OTHER ship!!!  cmon man!"
+  end
+
+  def self.shot_not_on_grid
+    "You must target a spot on the board!!"
+  end
+
+  def self.shot_there_already
+    "You already shot there!, pick another spot to target!"
+  end
+
 
 end
