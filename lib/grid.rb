@@ -1,5 +1,7 @@
 require './lib/validation'
 
+# Awesome.  Great class.
+
 class Grid
   include Validation
     attr_reader :grid

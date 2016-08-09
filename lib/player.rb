@@ -24,19 +24,33 @@ COORDINATES = {"A1" => 24, "A2" => 26, "A3" => 28, "A4" => 30,
     end
   end
 
+  # def gets_player_two_unit_ship
+  #   valid = false
+  #   until valid == true
+  #     player_input = gets.chomp
+  #     two_ship = input_coords_to_number(player_input)
+  #     p1 = two_ship[0]
+  #     p2 = two_ship[1]
+  #     valid = grid.second_spot_valid?(p1, p2) && pos.include?(p2) && two_ship.length == 2
+  #     if valid == false
+  #       puts Messages.invalid_ship_placement_message
+  #     end
+  #   end
+  #   return two_ship
+  # end
+
+  # I won't refactor everything, but here's an example of how you can break out noticeable
+  # booleans and really tighten up these lengthier methods.
   def gets_player_two_unit_ship
-    valid = false
-    until valid == true
-      player_input = gets.chomp
-      two_ship = input_coords_to_number(player_input)
-      p1 = two_ship[0]
-      p2 = two_ship[1]
-      valid = grid.second_spot_valid?(p1, p2) && pos.include?(p2) && two_ship.length == 2
-      if valid == false
-        puts Messages.invalid_ship_placement_message
-      end
+    loop do
+      two_ship = input_coords_to_number(gets.chomp)
+      return two_ship if valid_two_unit_ship_placement?(two_ship[0], two_ship[1])
+      puts Messages.invalid_ship_placement_message
     end
-    return two_ship
+  end
+
+  def valid_two_unit_ship_placement?(p1, p2)
+    grid.second_spot_valid?(p1, p2) && pos.include?(p2) && two_ship.length == 2
   end
 
   def gets_player_three_unit_ship

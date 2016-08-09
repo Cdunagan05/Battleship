@@ -18,6 +18,8 @@ module Validation
     end
   end
 
+  # Beth was telling me that any method with a question mark should only return a boolean.
+  # This method prints out a message or returns a boolean.  That's more than one responsibility.
   def is_shot_valid?(target)
     pos = [24, 26, 28, 30, 34, 36, 38, 40, 44, 46, 48, 50, 54, 56, 58, 60]
     if pos.include?(target[0]) == false
