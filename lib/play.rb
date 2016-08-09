@@ -15,8 +15,6 @@ class Play
               :cpu_grid,
               :player_grid
 
-## There's a lot going on in initialize.  I would suggest breaking out the gameplay
-# into its own method which then calls place_cpu_ships, place_player_ships, and shot_sequence
 
   def initialize
     @two_unit_cpu_ship = ComputerShips.new
@@ -36,8 +34,6 @@ class Play
     ships = true
     two_cpu = two_unit_cpu_ship.cpu_generates_random_positions_for_2_unit_ship
     cpu_grid.place_ship(two_cpu)
-    # I would suggest breaking out this until look and the if statement inside into
-    # two separate methods.
       until ships == false
       three_cpu = three_unit_cpu_ship.cpu_generates_random_positions_for_3_unit_ship
       ships = cpu_grid.placing_over_a_ship?(three_cpu)
@@ -54,8 +50,6 @@ class Play
     two_player = two_unit_player_ship.gets_player_two_unit_ship
     player_grid.place_ship(two_player)
     puts Messages.player_positions_3_unit_ship_message
-    # I would suggest breaking out this until look and the if statement inside into
-    # two separate methods.
       until ships == false
         three_player = three_unit_player_ship.gets_player_three_unit_ship
         ships = player_grid.placing_over_a_ship?(three_player)
@@ -108,7 +102,6 @@ class Play
       valid = is_shot_valid?(target) && !has_already_shot_at?(target, cpu_grid)
     end
     target[0]
-    # hit_or_miss(target)
   end
 
   def cpu_shoots
@@ -120,6 +113,5 @@ class Play
       valid = !has_already_shot_at?(target, player_grid)
     end
     target[0]
-    # hit_or_miss(target)
   end
 end
