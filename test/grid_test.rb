@@ -29,4 +29,10 @@ class GridTest < Minitest::Test
     grid.place_ship([24, 34, 44])
     assert_equal "==========\n..1.2.3.4 \nA.S. . . \nB.S. . . \nC.S. . . \nD. . . . \n==========\n".chars, grid.grid
   end
+
+  def test_it_count_the_Hits
+    grid = Grid.new
+    grid.attacked = "==========\n..1.2.3.4 \nA. .H. . \nB. . . . \nC. . . . \nD. . . . \n==========\n".chars
+    assert_equal 1, grid.scan_board_for_ships
+  end
 end

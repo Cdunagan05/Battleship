@@ -62,16 +62,15 @@ class Play
   end
 
   def shot_sequence
-    while (cpu_grid.scan_board_for_ships < 5) || (player_grid.scan_board_for_ships < 5)
+    while (cpu_grid.scan_board_for_ships < 5) && (player_grid.scan_board_for_ships < 5)
       show_grid = cpu_grid.attacked
       puts show_grid.join
       player_hit_or_miss(player_shoots)
       puts show_grid.join
-      cpu_grid.scan_board_for_ships
       cpu_hit_or_miss(cpu_shoots)
       puts player_grid.attacked.join
-      player_grid.scan_board_for_ships
     end
+    puts Messages.ended
   end
 
   def player_hit_or_miss(target)
@@ -101,7 +100,7 @@ class Play
       target = input_coords_to_number(gets.chomp).first
       valid = is_shot_valid?(target) && !has_already_shot_at?(target, cpu_grid)
     end
-    target[0]
+    target
   end
 
   def cpu_shoots
@@ -112,6 +111,6 @@ class Play
       target = pos.sample
       valid = !has_already_shot_at?(target, player_grid)
     end
-    target[0]
+    target
   end
 end
