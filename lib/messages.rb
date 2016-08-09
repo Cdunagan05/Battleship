@@ -54,5 +54,18 @@ Enter the squares for the two-unit ship:"
     "You already shot there!, pick another spot to target!"
   end
 
+  def self.missed
+    "Nice try, but you MISSSSSSED"
+  end
+
+  def self.hit
+    "Wow, you actually managed to hit a ship. Lucky shot"
+  end
+
+  def self.computer_shoots
+    "checkout where the computer shot!"
+  end
+  
+
 
 end
