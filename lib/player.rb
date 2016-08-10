@@ -16,7 +16,7 @@ class Player
   def gets_player_two_unit_ship
     loop do
       two_ship = input_coords_to_number(gets.chomp)
-      return two_ship if valid_two_unit_ship_placement?(two_ship[0], two_ship[1])
+      return two_ship if valid_two_unit_ship_placement?(two_ship[0], two_ship[1]) && two_ship.length == 2
       puts Messages.invalid_ship_placement_message
     end
   end
@@ -28,7 +28,7 @@ class Player
   def gets_player_three_unit_ship
     loop do
       three_ship = input_coords_to_number(gets.chomp)
-      return three_ship if valid_three_unit_ship_placement?(three_ship[0], three_ship[2])
+      return three_ship if valid_three_unit_ship_placement?(three_ship[0], three_ship[2]) && three_ship.length == 3
       puts Messages.invalid_ship_placement_message
     end
   end
@@ -46,5 +46,4 @@ class Player
     end
     target[0]
   end
-
 end

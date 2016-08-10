@@ -58,7 +58,6 @@ class Play
         end
       end
     player_grid.place_ship(three_player)
-    puts "cool.... now let's do this!"
   end
 
   def shot_sequence
@@ -67,10 +66,12 @@ class Play
       puts show_grid.join
       player_hit_or_miss(player_shoots)
       puts show_grid.join
+      cpu_grid.scan_board_for_ships
       cpu_hit_or_miss(cpu_shoots)
+      puts "CPU Board".yellow
       puts player_grid.attacked.join
     end
-    puts Messages.ended
+    end_game_stuff
   end
 
   def player_hit_or_miss(target)
@@ -86,10 +87,9 @@ class Play
   def cpu_hit_or_miss(target)
     if player_grid.grid[target] == " "
       player_grid.attacked[target] = "M"
-      puts Messages.missed
     else
       player_grid.attacked[target] = "H"
-      puts Messages.hit
+      puts Messages.cpu_hit
     end
   end
 
@@ -112,5 +112,13 @@ class Play
       valid = !has_already_shot_at?(target, player_grid)
     end
     target
+  end
+
+  def end_game_stuff
+    if cpu_grid.scan_board_for_ships == 5
+      puts Messages.player_won
+    else
+      puts Messages.cpu_won
+    end
   end
 end

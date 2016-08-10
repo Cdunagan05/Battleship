@@ -34,7 +34,6 @@ class ComputerShips
     valid = false
     until valid == true
       target = pos.sample
-      binding.pry
       valid = !has_already_shot_at?(target)
     end
     target[0]

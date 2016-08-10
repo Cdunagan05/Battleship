@@ -1,4 +1,5 @@
 require 'pry'
+require './lib/messages'
 module Validation
 
   COORDINATES = {"A1" => 24, "A2" => 26, "A3" => 28, "A4" => 30,
@@ -19,7 +20,9 @@ module Validation
 
   def third_spot_valid?(pos_1, third_pos_input)
     possible_3rd_ship = [pos_1 - 4, pos_1 + 4, pos_1 - 20, pos_1 +20]
-    possible_3rd_ship.include?(third_pos_input)
+    no_p2 = [32, 42, 52]
+    p2 = (pos_1 + third_pos_input)/2
+    possible_3rd_ship.include?(third_pos_input) && !no_p2.include?(p2)
   end
 
 
