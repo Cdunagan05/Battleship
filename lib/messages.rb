@@ -7,8 +7,10 @@ module Messages
     The first is two units long and the
     second is three units long.
     The grid has A1 at the top left and D4 at the bottom right.
+    To place ships, type the row(letter) and the column(number) like
+    so... 'A1 A2', but leave out the quotations.
 
-    Enter the squares for the two-unit ship:".red
+    Enter the squares for the two-unit ship:".light_blue
   end
 
   def self.player_positions_3_unit_ship_message
@@ -16,7 +18,7 @@ module Messages
   end
 
   def self.invalid_ship_placement_message
-    "Hey! That wasn't a valid ship placement, please place ships appropriately.".red
+    "Error Message: Invalid ship placement, please place ships appropriately.".red
   end
 
   def self.prompt_player_shot
@@ -78,6 +80,10 @@ module Messages
 
   def self.player_won
     "You sunk all the cpu's ships!!!  PARTY PARROT TIIIIIIIME!!!".yellow
+  end
+
+  def self.not_valid_placement
+    "That is not a valid input.  Please input ships like this 'A1 A2', but without the quotes"
   end
 
 

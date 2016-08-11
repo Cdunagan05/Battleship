@@ -45,4 +45,14 @@ module Validation
   def has_already_shot_at?(target, grid)
     true if grid.attacked[target] == "H" || grid.attacked[target] == "M"
   end
+
+  def valid_ship(ship1)
+    pos = [24, 26, 28, 30, 34, 36, 38, 40, 44, 46, 48, 50, 54, 56, 58, 60]
+    if pos.include?(ship1)
+      return true
+    else
+      puts Messages.not_valid_placement
+      return false
+    end
+  end
 end
